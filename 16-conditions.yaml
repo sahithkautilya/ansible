@@ -4,6 +4,12 @@
   tasks:
   - name: install nginx if redhat
     ansible.builtin.dnf:
+      name: nginx
+      state: present
+    when: ansible_os_family == "RedHat"
+
+  - name: install zip if redhat
+    ansible.builtin.dnf:
       name: zip
       state: present
     when: ansible_os_family == "RedHat"
