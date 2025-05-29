@@ -41,3 +41,9 @@
       name: " DevOps COURSE"
     ansible.builtin.debug:
       msg: "Hello, {{ name | lower}}"
+
+  - name: IP address validation
+    vars:
+      IP: "192.168.1.2"
+    ansible.builtin.debug:
+      msg: "{{ IP | ansible.utils.ipaddr }} "
