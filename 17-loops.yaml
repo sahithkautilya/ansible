@@ -1,0 +1,12 @@
+- name: loops
+  hosts: local
+  connection: local
+  tasks:
+  - name: print names
+    ansible.builtin.debug:
+      msg: "Hello, {{ item }}" #item is a reserve keywoard
+    loop:
+    - Suresh
+    - Ramesh
+    - Sahith
+    - Kautilya
