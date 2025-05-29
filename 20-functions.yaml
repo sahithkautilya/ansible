@@ -2,7 +2,7 @@
   hosts: local
   connection: local
   vars:
-    persons: "SaiKumar, Sahith, Kautilya, Krithik"
+    persons: "SaiKumar,Sahith,Kautilya,Krithik"
   tasks:
   - name: check undefined variable
     ansible.builtin.debug:
@@ -11,3 +11,12 @@
   - name: print names
     ansible.builtin.debug:
       msg: "Hello, {{ persons | split(',')}}"
+
+  - name: convert map in to list
+    vars:
+      course:
+        name: ansible
+        duration: 5 HR
+        trainer: Sai
+    ansible.builtin.debug:
+      msg: "Course Info: {{ course | dict2items }}"
